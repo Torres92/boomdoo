@@ -1,0 +1,148 @@
+body {
+    
+    font-family: Roboto, helvetica, sans-serif;
+}
+
+.navfont {
+	font-family: Roboto, arial, sans-serif;
+}
+
+.logobrand {
+	width: 120px;
+	height: 50px;
+	margin-left: 15px;
+	margin-top: 10px;
+}
+
+
+
+nav {
+	margin-bottom: 5px;
+}
+
+.sliderP {
+	height: 400px;
+}
+
+.centry {
+	margin-bottom: 10px; 
+	text-align: center;
+}
+
+
+
+
+.main-img {
+    display: block;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+/* Formulario del modal */
+
+.modalForm {
+    padding: 3px 24px 7px 24px;
+}
+form > div.row {
+    margin-bottom: 2px;
+}
+
+
+div.modal.maxWidth {
+    position: absolute !important;
+    top: 30px !important;
+    padding-top: 3px !important;
+}
+
+.maxWidth {
+    width: 50%;
+    max-height: 113%;
+}
+
+
+.contenedorModal {
+    padding: 0 !important;
+}
+
+/****** BARRA ESPERA *****/
+
+.barraloginEspera {
+    margin-top: 0 !important;
+    margin-bottom: 2px !important;
+
+}
+
+/***** Alert Login ******/
+.alert-danger {
+    padding: 3px 0;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+
+/* Set a style for all buttons */
+button.login {
+    height: 44px;
+    color: white;
+    margin: 5px 0;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+}
+
+/* Add a hover effect for buttons */
+button.login:hover, button.cancelbtn:hover {
+    opacity: 0.8;
+}
+
+/* CHECHBOX */
+
+/* Extra style for the cancel button (red) */
+.cancelbtn {
+    width: auto;
+    padding: 14px 20px;
+    background-color: #f44336;
+    border: none;
+    border-radius: 5px;
+    margin-top: 5px; 
+}
+
+/* Center the avatar image inside this container */
+.imgcontainer {
+    text-align: center;
+    margin: 0;
+}
+
+/* Avatar image */
+img.avatar {
+    width: 20%;
+    border-radius: 50%;
+}
+
+/* Add padding to containers */
+.contenedor {
+    padding: 0px;
+}
+
+/* The "Forgot password" text */
+a.psw {
+    float: right;
+    padding-top: 16px;
+    cursor: pointer;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 800px) {
+    a.psw {
+        display: block;
+        float: none;
+    }
+    .cancelbtn {
+
+        width: 100%;
+    }
+
+}
+
+

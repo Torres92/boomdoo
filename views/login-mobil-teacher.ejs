@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+  <html lang="es" ng-app="app">
+    <head>
+      <meta charset="UTF-8">
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+       <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+      <link type="text/css" rel="stylesheet" href="lib/materialize/materialize.min.css"  media="screen,projection"/>
+      <link rel="stylesheet" href="css/login-mobil.css">
+    </head>
+
+    <body ng-controller="CtrlLoginStudent">
+
+      
+    <div class="container carta">
+      <div class="progress barraloginEspera" ng-show="preload">
+        <div class="indeterminate"></div>
+      </div>
+      <form ng-submit="login(user)">
+        <div class="imgcontainer">
+          <img src="img/professor.png" alt="Avatar" class="avatar">
+        </div>
+
+        <div class="contenedor">
+
+
+          <div class="alert-danger hide-on col red white-text" ng-show="message">
+            <h6 class="center-align">{{message}}</h6>
+          </div>
+          <label for="uname"><b>Correo Electronico</b></label>
+          <input type="text" placeholder="Introduce tu correo" name="uname" required ng-model="user.email">
+
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Introduce contraseña" name="psw" required ng-mdoel="user.password">
+
+          <button class="login btn blue darken-4 waves-effect waves-light" type="submit" ng-disabled="preload">Iniciar Sesión</button>
+          <label>
+              <input type="checkbox" class="filled-in"/>
+              <span>Recordar contraseña</span>
+          </label>
+        </div>
+
+        <div class="contenedor" style="background-color:#f1f1f1">
+          <a href="/" class="btn red white-text">Cancelar</a>
+          <span class="psw">Olvidaste tu <a href="#">contraseña?</a></span>
+        </div>
+      </form>
+    </div>
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.10/angular.min.js"></script>
+    <script src="lib/angular-local-storage/dist/angular-local-storage.min.js"></script>
+    <script src="js/config/configIndex.js"></script>
+    <script src="js/services/Auth.js"></script>
+    <script src="js/controllers/CtrlLoginTeacher.js"></script>
+  </html>

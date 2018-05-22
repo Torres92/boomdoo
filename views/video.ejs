@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="app">
+<head>
+	<meta charset="UTF-8">
+  <title>BoomDoo</title>
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      
+  <!--Import materialize.css-->
+
+  <link type="text/css" rel="stylesheet" href="lib/materialize/materialize.min.css"  media="screen,projection"/>
+
+  <link rel="stylesheet" type="text/css" href="lib/angular-notify/dist/angular-notify.min.css">
+
+	<link rel="stylesheet" href="css/classroom.css">
+	 
+</head>
+<body ng-controller="CtrlClassroom" ng-cloak>
+
+<div id="mySidenav" class="sidenavChat" ng-style="mySidenav">
+    <div class="chatboxContainer">
+         <div class="">
+          <ul class="collection chatbox">
+  	        
+
+            <li class="{{item.class}}" ng-repeat="item in messages">
+                <div class="msj macro">
+                <div class="text">
+                  <p>{{item.msm}}<p>
+                  <small am-time-ago="item.time"></small>
+                </div>
+                <div class="avatar" style="padding:0px 0px 0px 10px !important;position: absolute;">
+                  <img src="https://lh6.googleusercontent.com/-lr2nyjhhjXw/AAAAAAAAAAI/AAAAAAAARmE/MdtfUmC0M4s/photo.jpg?sz=48" alt="" style="position: absolute;top: 0;" class="circle responsive-img">
+                </div>
+              </div>
+  	        </li>
+
+	        </ul>  
+      	
+          <ul class="collection valign-wrapper cajaComentar">
+              <li class="collection-item valign-wrapper cajaInput">
+                <form class="col msm-form s12">
+                  <div class="row contenedorInput">
+                    <div class="input-field col s12">
+                	  <img src="img/mario.jpg" alt="" class="responsive-img circle prefix">
+                      <textarea id="icon_prefix2" class="materialize-textarea" ng-model="textsend"></textarea>
+                      <label for="icon_prefix2">Escribe un Comentario</label>
+                    </div>
+                  </div>
+                  <li class="collection-item transparent botonesChat">
+                    <a  href="#" ng-click="closeNav()" class="btn red">
+                      <i class="material-icons">close</i>
+                    </a>
+                    <a class="btn red"><i class="material-icons">insert_chart</i></a>
+                    <a class="btn white right" ng-click="sendMessage(textsend)"><i class="material-icons black-text">send</i></a></li>
+                </form>
+              </li>
+       	 </ul>
+      </div>
+    </div>   
+</div>
+
+<div id="Pizarra" class="sidenavPizarra">
+  <canvas id="gameCanvas" style=""></canvas>
+	<a href="javascript:void(0)" onclick="cerrarPizarra()" style="position: absolute; top: 5px; right:5px;" class="btn-floating btn-small waves-effect waves-light hoverable red"><i class="material-icons small">close</i></a>
+	
+  <div class="botonesPizarron">
+    <a  class="btn-floating btn-small waves-effect waves-light hoverable transparent"><img style="margin-top: 8px" src="img/eraser.png" type="" alt=""></a>
+    <a class="btn-floating btn-small waves-effect waves-light hoverable blue"><i class="material-icons small">brush</i></a>
+    <a id="botonEditar" class="btn-floating hide btn-small waves-effect waves-light hoverable transparent"><img src="img/edit2.png" style="margin-top: 8px" alt="">
+    </a>
+    <a id="cerrarEditar" class="btn-floating btn-small waves-effect waves-light hoverable blue"><i class="material-icons small">close</i></a>
+  </div>
+  <ul id="botonesEdicion" class="botonesEdicion">
+    <li class="botonesEditando"><a class="btn-floating hoverable btn-small waves-effect waves-light hoverable blue"><i class="material-icons small">crop_3_2</i></a></li>
+    <li class="botonesEditando"><a class="btn-floating hoverable btn-small waves-effect waves-light hoverable blue"><i class="material-icons small">remove</i></a></li>
+    <li class="botonesEditando"><a class="btn-floating hoverable btn-small waves-effect waves-light hoverable blue"><i class="material-icons small">radio_button_unchecked</i></a></li>
+  </ul>    
+</div>
+
+
+<div id="main" class="video-container1" ng-style="main">
+	<div class="overlay">
+    <div id="localVideo" class="responsive-video overlayVideo" ng-show="option.cam"></div>
+  </div>
+
+	<div id="remoteVideo"></div>
+
+	<div class="botones z-depth-2" id="botones" ng-style="botones">
+		<div class="container center">
+  		<a ng-show="option.mic" class="btn btnVideoBoomDoo hoverable btn-small waves-effect waves-light hoverable white" ng-click="mute()"><i class="material-icons black-text small">mic</i></a>
+      <a ng-show="!option.mic"  class="btn btnVideoBoomDoo hoverable btn-small waves-effect waves-light hoverable white" ng-click="unmute()"><i class="material-icons black-text small">mic_off</i></a>
+  		<a ng-show="option.cam" ng-click="pauseVideo()" class="btn btnVideoBoomDoo btn-small hoverable waves-effect waves-light hoverable white"><i class="material-icons small black-text">videocam</i></a>
+      <a ng-show="!option.cam" ng-click="resumeVideo()" class="btn btnVideoBoomDoo btn-small hoverable waves-effect waves-light hoverable white"><i class="material-icons small black-text">videocam_off</i></a>
+  		<a ng-click="openNav()" class="btn btnVideoBoomDoo btn-small waves-effect waves-light hoverable white">
+      <i class="material-icons small black-text">message</i>
+      <b class="badge black-text" ng-show="countmsm>0">{{countmsm}}</b>
+      </a>
+		</div>
+	</div>
+</div>
+
+<div class="fixed-action-btn click-to-toggle">
+        <a class="btn-floating btn-large red">
+          <i class="large material-icons">settings</i>
+        </a>
+        <ul>
+          <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+          <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+          <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+          <li><a onclick="abrirPizarra()" class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+        </ul>
+</div>
+
+
+</body>
+
+  <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script> 
+  <script src="https://simplewebrtc.com/latest-v3.js"></script> 
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.10/angular.min.js"></script>
+  <script src="lib/moment/min/moment.min.js"></script>
+  <script src="lib/moment/locale/es.js"></script>
+  <script src="lib/angular-moment/angular-moment.min.js"></script>
+  <script src="lib/angular-notify/dist/angular-notify.min.js"></script>
+  <script src="js/config/configClassroom.js"></script>
+  <script src="js/services/Webrtc.js"></script>
+  <script src="js/controllers/CtrlVideo.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="lib/materialize/materialize.min.js"></script>
+  <script src="js/materialize/classroom.js"></script>
+
+</html>

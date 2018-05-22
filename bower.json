@@ -1,0 +1,13 @@
+{
+  "name": "CuponApp",
+  "private": "true",
+  "dependencies": {
+    "angular-local-storage": "^0.7.1",
+    "ngtouchstart": "^1.0.1",
+    "ngtouchend": "^1.0.1",
+    "ngtouchmove": "^1.0.1",
+    "push.js": "^1.0.5",
+    "angular-moment": "^1.2.0",
+    "angular-notify": "^2.5.1"
+  }
+}

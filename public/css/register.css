@@ -1,0 +1,16 @@
+body {
+	background: #e6ecf0;
+	font-family: Roboto, helvetica, sans-serif;
+	
+}
+.login {
+	margin: 130px auto;
+}
+
+.fluid-img {
+	margin-top: 10px;
+}
+
+.resultadoBusqueda {
+	width: 100%;
+}

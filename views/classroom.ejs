@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title>Classroom</title>
+</head>
+<style type="text/css">
+	#remoteVideo video{
+		width: 50px;
+		height: 50px
+	}
+	div#localVideo video{
+		widows: 50px;
+		height: 50px;
+	}
+	canvas{
+		border:1px solid black;
+		margin: 0px !important;
+		padding: 0px;
+		cursor: pointer;
+	}
+</style>
+
+<body ng-controller="CtrlClassroom">
+
+	<canvas id="canvas" ng-mousedown = "pulsaRaton($event)" ng-mousemove="mueveRaton($event)" ng-mouseup="levantaRaton($event)" width="400" height="400" ng-touchstart="ontouchstart($event)" ng-touchend="ontouchend($event)"  ng-touchmove="onTouchmove($event)"></canvas>
+
+ 	<div id="localVideo"></div>
+
+ 	<div id="remoteVideo"></div>
+
+ 	<ul>
+ 		<li ng-repeat="item in msm">{{item}}</li>
+ 		<input type="text"  ng-model="text">
+ 		<button ng-click="submitSms(text)">enviar mensaje</button>
+ 	</ul>
+ 	
+	
+</body>
+<script src="lib/webrtc/adapter.js"></script>
+<script src="lib/webrtc/webrtc.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="lib/ngtouchstart/src/ngTouchstart.js"></script>
+<script src="lib/ngtouchend/src/ngTouchend.js"></script>
+<script src="lib/ngtouchmove/src/ngTouchmove.js"></script>
+<script src="js/controllers/CtrlClassroom.js"></script>
+</html>
