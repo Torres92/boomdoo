@@ -1,16 +1,17 @@
 angular.module('app')
-.controller('CtrlLoginStudent',['$scope','Auth','localStorageService',CtrlIndex])
+.controller('CtrlLoginStudent',['$window','$scope','Auth','localStorageService',CtrlIndex])
 
-function CtrlIndex($scope,Auth,localStorageService){
+function CtrlIndex($window,$scope,Auth,localStorageService){
 
 	$scope.login= function(user){
-
+        console.log(user)
     	$scope.preload =true;
 
         Auth.loginStudent(user)
         .then(function(response){
             localStorageService.set('user',response.data);
             $scope.preload =false;
+            $window.location.href="/";
         })
         .catch(function(response){
         	$scope.message = response.data.message;

@@ -1,0 +1,102 @@
+body {
+	background: #e6ecf0;
+	font-family: Roboto, helvetica, sans-serif;
+	font-size: 12px;
+}
+
+.imgProfile {
+	width: 150px !important;
+	height: 150px !important;
+}
+
+.descripcion {
+	margin-left: 3px;
+	margin-right: 3px;
+}
+
+/* barra de navegacion */
+
+li > form.nav-form{
+	height: 60px;
+	width: 250px;
+}
+
+.logobrand {
+	width: 120px;
+	height: 50px;
+	margin-left: 15px;
+	margin-top: 10px;
+}
+
+
+
+nav {
+	margin-bottom: 5px;
+	overflow: visible;
+}
+
+
+/* CSS del dropdown del search */
+
+
+/* The container <div> - needed to position the dropdown content */
+.dropdownY {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-contentY {
+    display: none;
+    position: absolute;
+    background-color: #f6f6f6;
+    max-width: 260px;
+    min-width: 230px;
+    border: 1px solid #ddd;
+    z-index: 1;
+}
+
+
+/* Links inside the dropdown */
+.dropdown-contentY a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-contentY .row {
+	margin-bottom: 0;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-contentY a:hover {background-color: #f1f1f1}
+
+.resultadoBusqueda {
+	width: 100%;
+}
+.contenidoBusqueda {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+/*********** CONTENEDOR COMENTARIOS **************/
+
+.contenedorInput,
+.contenedorComentar {
+	margin-bottom: 0 !important;
+}
+ul.cajaComentar {
+	border: none !important;
+}
+
+li.cajaInput{
+	border:1px solid #e0e0e0 !important;
+	overflow: hidden;
+}
+
+li.cajaComentario {
+	margin-bottom: 9px !important;
+	border:1px solid #e0e0e0 !important;
+	border-radius: 5px;
+}

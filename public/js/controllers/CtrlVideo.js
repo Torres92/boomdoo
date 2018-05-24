@@ -15,30 +15,19 @@ function CtrlClassroom($scope,notify){
 				localVideoEl: 'localVideo',//instancia mi camara local;
 				remoteVideosEl: 'remoteVideo',
 				media: { audio: true, video: true},
-  				autoRequestMedia: true//inicia mi camara de manera autimatica
+  				autoRequestMedia: true,//inicia mi camara de manera autimatica
+
 			});
 
 
-	webrtc.on('readyToCall', function () {
-  	// conectar la video llamada a la sala
+	webrtc.on('readyToCall', function () {		
+  		// conectar la video llamada a la sala
   		webrtc.joinRoom('id');
 	});
 
-	// a peer video has been added
-	webrtc.on('videoAdded', function (video, peer) {
-   
-    	console.log('video added', peer);
-
-	});
-
-	webrtc.on('videoRemoved', function (video, peer) {
-    	console.log('video removed ', peer);
-   
-	});
 
 
-
-	webrtc.connection.on('message', (data) => {
+	/*webrtc.connection.on('message', (data) => {
   		if (data.type === 'chat') {
     		const payload = data.payload;
     		$scope.$apply(function (){
@@ -56,7 +45,7 @@ function CtrlClassroom($scope,notify){
 	 			});
     		})
     	}
-    })
+    })*/
 	
 	$scope.mute = function (){
 		webrtc.mute();

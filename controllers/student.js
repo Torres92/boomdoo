@@ -1,5 +1,6 @@
 const mongoose = require('mongoose'),
 		bcrypt = require('bcrypt-nodejs'),
+	  services = require('../services/token'),
 		Student = require('../models/students.js');
 
 exports.login = function (req,res,next){
@@ -9,11 +10,15 @@ exports.login = function (req,res,next){
 
 		if(!user) return res.status(404).send({message : 'Correo no existe'});
 
-		if(!bcrypt.compareSync(req.body.password,user.password))  return res.status(404).send({message : 'Clave incorrecta'});
+		if(!bcrypt.compareSync(req.query.password,user.password))  return res.status(404).send({message : 'Clave incorrecta'});
 			
+		req.session.user = user.email;//guarda la variable de session para mantener la session activa;
+
 		res.status(200).send({
 			token : services.createToken(user),
-			displayName : user.displayName,
+			name : user.name,
+			email : user.email,
+			lastname : user.lastname,
 			email : user.email
 		});
 			
@@ -22,12 +27,41 @@ exports.login = function (req,res,next){
 }
 
 
-exports.signIn = function (req,res,next){
+exports.signup = function (req,res,next){
 
-	let student =  new Student({
-		displayName : req.body.name + '' + req.body.lastname,
-
+	let user=  new Student({
+		name : req.query.name,
+		lastname : req.query.lastname,
+		password : req.query.password,
+		sex : req.query.sex,
+		birthdate : req.query.birthdate,
+		occupation : req.query.occupation,
+		country : req.query.country,
+		email : req.query.email
 
 	});
+
+	user.save(function (err){
+		if(err) return res.status(500).send({message : 'Correo existe'});
+			
+		res.status(200).send({
+			token : services.createToken(user),
+			name : user.name,
+			lastname : user.lastname,
+			email : user.email
+		});
+	});
+
+}
+
+exports.verifyAccount = function (req,res,next){
+
+	 res.status(200).send({message : 'tienes permiso'})
+}
+
+exports.logoutStudent = function (req,res,next){
+	if(!req.session.user) return res.status(403).send({message : 'sus credenciales han caducado'});
+	req.session.destroy();
+	res.status(200).send({message : 'cerrando sessión'})
 
 }

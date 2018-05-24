@@ -3,6 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var session = require('express-session');
+
 
 var usersRouter = require('./routes/users');
 var usersApi =  require('./api/users');
@@ -18,8 +20,13 @@ app.set('port',global.config.server.port);
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use(session({
+    secret: global.config.session.secret,
+    resave: true,
+    saveUninitialized: true
+}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', usersRouter);
@@ -43,10 +50,22 @@ app.use(function(err, req, res, next) {
 
 var db = require('./db.js');
 
+var server = require('http').Server(app);
 
-app.listen(app.get('port'),function (){
-  console.log(app.get('port'));
+var io = require('socket.io')(server);
+
+server.listen(app.get('port'), function() {
+	console.log('port ' + app.get('port'));
 });
+
+io.on('connection', function(socket) {
+
+	console.log('Un cliente se ha conectado');
+	
+
+});
+
+
 
 
 module.exports = app;

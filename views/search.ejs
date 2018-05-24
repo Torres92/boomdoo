@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+  <html lang="es" ng-app="app">
+    <head>
+       <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="lib/materialize/materialize.min.css" />
+      <link rel="stylesheet" href="css/search.css">
+    </head>
+
+    <body ng-controller="CtrlSearch">
+      <!-- Dropdown Structure -->
+      <ul id="dropdown1" class="dropdown-content">
+        <li><a class="navfont black-text" href="#!">Editar Perfil</a></li>
+        <li class="divider"></li>
+        <li><a class="black-text" href="#!" ng-click="logout()">Cerrar Sesión</a></li>
+      </ul> 
+      <ul id="dropdown2" class="dropdown-content">
+        <li><a class="navfont black-text" href="#!">Iniciar Session</a></li>
+        <li class="divider"></li>
+        <li><a class="navfont black-text" href="#!">Registrarme</a></li>
+      </ul> 
+      
+
+      <!--Main Nav -->
+      <div class="navbar-fixed">   
+        <nav class="grey lighten-4">
+            <div class="nav-wrapper">
+              <a href="#!" class="brand-logo left hide-on-small-only">
+                <img src="img/boomboo.png" class="logobrand responsive-img" alt="">
+              </a>
+              <a href="#!" class="brand-logo hide-on-med-and-up">
+                <img src="img/boomboo.png" class="logobrand responsive-img" alt="">
+              </a>
+              <a href="#" data-target="slide-out" class="sidenav-trigger black-text"><i class="material-icons hide-on-med-only">menu</i></a>
+
+              <a href="#" data-target="slide-out2" class="sidenav-trigger black-text right"><i class="material-icons hide-on-med-only">search</i></a>
+               
+              <ul class="right hide-on-small-only">  
+                <li> 
+                  <form class="nav-form">
+                    <div class="input-field dropdownY">
+                      <input id="search" type="search" placeholder="Buscar" required>
+                      <label class="label-icon" for="search"><i class="material-icons black-text">search</i></label>
+                      <i class="material-icons">close</i>
+                      
+                      <div id="myDropdown" class="dropdown-contentY">
+                        <ul class="collection contenidoBusqueda" ng-show="users">
+                          <li class="collection-item avatar resultadoBusqueda truncate" ng-repeat="item in users">
+                            <a href="" class="">
+                            <img ng-src="{{item.photo}}" alt="" class="circle">
+                            <span class="title truncate"><b> {{item.name}} {{item.lastname}} </b></span>
+                            </a>
+                          </li>
+                         
+
+                        </ul>
+                      </div>
+                    </div>
+                  </form>
+                </li>
+                <!-- Dropdown Trigger -->
+                <li ng-show="user"><a class="dropdown-trigger navfont black-text" href="#" data-target="dropdown1"><i class="material-icons left">account_circle</i> {{user.name}} <i class="material-icons right">arrow_drop_down</i></a>
+                </li> 
+                <li ng-hide="user"><a class="dropdown-trigger navfont black-text" href="#" data-target="dropdown2"><i class="material-icons left">account_circle</i>Iniciar session<i class="material-icons right">arrow_drop_down</i></a></li> 
+                
+               
+              </ul>
+              
+            </div>
+        </nav>
+      </div>
+      
+       <!-- sidebar mobile IZQUIERDA-->
+    <ul id="slide-out" class="sidenav left">
+      <li><div class="user-view">
+        <div class="background">
+          <img src="img/demo1.png">
+        </div>
+        <a href="#user"><img class="circle" src="img/demo1.jpg"></a>
+        <a href="#name"><span class="white-text name">{{user.name}} {{user.lastname}}</span></a>
+        <a href="#email"><span class="white-text email">{{user.email}}</span></a>
+      </div></li>
+      <li><a href="#!"><i class="material-icons">cloud</i>Mi Perfil</a></li>
+      <li><a href="#!">Mis Clases</a></li>
+      <li><a href="#!">Editar Perfil</a></li>
+      <li><div class="divider"></div></li>
+      <li><a class="waves-effect" href="#!" ng-click="logout()">Cerrar Sesión</a></li>
+    </ul> 
+    
+
+    <!-- sidebar mobile DERECHA-->
+    <ul id="slide-out2" class="sidenav collection right">
+      <form class="nav-form">
+                    <div class="input-field">
+                      <input id="search" type="search" placeholder="Buscar" required> 
+                      <i class="material-icons">close</i> 
+                    </div>
+      </form>                              
+      <li class="collection-item avatar resultadoBusqueda">
+        <a href="" class="">
+          <img src="img/yuna.jpg" alt="" class="circle">
+          <span class="title truncate"><b>Ricardo Bruno</b></span>
+          </a>
+       </li>
+      
+    </ul>
+
+
+
+       
+
+      <div class="section">
+        <div class="row center">
+          <h3 class="center hide-on-small-only">Recomendaciones</h>
+          <h5 class="center hide-on-med-and-up">Recomendaciones</h5>
+       
+          
+          <div class="col s12 m4 l3">
+            <div class="card hoverable center">
+              <div class="card-image">
+                <img src="img/imgCarta.jpg" alt="John">
+                <span class="card-title"></span>
+              </div>
+                <a class="center nombreCarta" href="/profileTeacher/id"><h5>John Doe</h5></a>
+               
+                
+              <div class="tags">
+                <div class="chip">Básica</div>
+                <div class="chip">Diversificado</div>
+              </div>
+              <p class="center">Harvard University</p>
+              <div class="container">  
+                <i class="material-icons yellow-text text-darken-2">star</i>
+                <i class="material-icons yellow-text text-darken-2">star</i>
+                <i class="material-icons yellow-text text-darken-2">star</i>
+                <i class="material-icons yellow-text text-darken-2">star</i>
+                <i class="material-icons yellow-text text-darken-2">star_half</i>
+              </div> 
+              <p><button class="carta primerBtn truncate">Clase en vivo</button><button class="carta truncate">Reservar Clase</button></p>
+            </div>
+          </div>
+          
+
+         
+          
+          
+
+        </div>
+
+
+        
+      </div>
+
+
+     
+      
+    </body>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.10/angular.min.js"></script>
+    <script src="lib/angular-local-storage/dist/angular-local-storage.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/config/configSearch.js"></script>
+    <script src="js/services/Auth.js"></script>
+    <script src="js/controllers/CtrlSearch.js"></script>
+    <script src="lib/materialize/materialize.min.js"></script>
+    <script src="js/materialize/search.js"></script>
+
+  </html>

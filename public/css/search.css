@@ -1,0 +1,119 @@
+body {
+    font-family: Roboto, helvetica, sans-serif;
+    
+}
+
+li > form.nav-form{
+	height: 60px;
+	width: 250px;
+}
+
+.logobrand {
+	width: 120px;
+	height: 50px;
+	margin-left: 15px;
+	margin-top: 10px;
+}
+
+.filter.chip{
+    cursor: pointer;
+    margin-left: 5px
+}
+
+nav {
+	margin-bottom: 5px;
+	overflow: visible;
+}
+
+
+/* CSS del dropdown del search */
+
+
+/* The container <div> - needed to position the dropdown content */
+.dropdownY {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-contentY {
+    display: block;
+    position: absolute;
+    background-color: #f6f6f6;
+    max-width: 260px;
+    min-width: 230px;
+    border: 1px solid #ddd;
+    z-index: 1;
+}
+
+
+/* Links inside the dropdown */
+.dropdown-contentY a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-contentY .row {
+	margin-bottom: 0;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-contentY a:hover {background-color: #f1f1f1}
+
+.resultadoBusqueda {
+    width: 100%;
+}
+.contenidoBusqueda {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
+
+/* Css de carta prof. */
+.carta {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+}
+
+.nombreCarta:hover {
+	cursor:pointer;
+	color: #42a5f5;
+}
+
+.tags {
+    color: grey;
+    font-size: 18px;
+    margin-left: 5px;
+}
+
+button.carta {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 50%;
+    font-size: 18px;
+}
+
+button.primerBtn {
+	border-right: 1px solid #eeeeee;
+}
+
+a.panel {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+}
+
+button.carta:hover, a.panel:hover {
+    opacity: 0.7;
+}

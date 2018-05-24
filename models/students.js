@@ -11,7 +11,7 @@ const mongoose = require('mongoose'),
         name :{type : String},
         lastname : {type : String},
         sex : {type : String},       
-        birthdate : {type : Date},
+        birthdate : {type : String},
         occupation : {type : String},
         country : {type : String},
         photo : {type : String}

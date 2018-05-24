@@ -1,7 +1,7 @@
 angular.module('app')
-.controller('CtrlIndex',['$scope','Auth','localStorageService',CtrlIndex])
+.controller('CtrlIndex',['$window','$scope','Auth','localStorageService',CtrlIndex])
 
-function CtrlIndex($scope,Auth,localStorageService){
+function CtrlIndex($window,$scope,Auth,localStorageService){
     
 
 
@@ -10,8 +10,9 @@ function CtrlIndex($scope,Auth,localStorageService){
 
         Auth.loginStudent(user)
         .then(function(response){
-            localStorageService.set('student',response.data);
+            localStorageService.set('user',response.data);
             $scope.preloadStudent =false;
+            $window.location.href="/";
         })
         .catch(function(response){
         	$scope.messageStudent = response.data.message;
@@ -29,7 +30,7 @@ function CtrlIndex($scope,Auth,localStorageService){
             password: user.password
         })
         .then(function(response){
-            localStorageService.set('teacher',response.data);
+            localStorageService.set('user',response.data);
             $scope.preloadTeacher =false;
         })
         .catch(function(response){
