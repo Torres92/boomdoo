@@ -1,7 +1,7 @@
 angular.module('app')
-.controller('CtrlClassroomMobil',['$scope','Webrtc','notify',CtrlClassroomMobil])
+.controller('CtrlClassroomMobil',['$scope','notify',CtrlClassroomMobil])
 
-function CtrlClassroomMobil($scope,Webrtc,notify){
+function CtrlClassroomMobil($scope,notify){
 
 	$scope.messages = [];
 	$scope.countmsm = 0;

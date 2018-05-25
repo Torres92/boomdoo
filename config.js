@@ -4,20 +4,20 @@ var config = {
 
 	},
 	session:{
-		secret:'cuponapp'
+		secret:'boomdoo'
 	},
 	cloudinary : {
-		cloud_name : "dancupapp",
-		api_key : "411729613762936",
-		api_secret : "wLnsX33cZDoQi4gbcEQMBLipLI0"
+		cloud_name : "",
+		api_key : "",
+		api_secret : ""
 	},
 	mailgun:{
-		domain: "mg.cuponapp.com",
-		apiKey: "key-54a1be463d37bce3adf31f26e8bf52c2"
+		domain: "",
+		apiKey: ""
  	},
 	site: {
 		url: '',
-		title: 'Cuponapp',
+		title: 'boomDoo',
 		html: {
 			engine: 'ejs',
 			minify: true

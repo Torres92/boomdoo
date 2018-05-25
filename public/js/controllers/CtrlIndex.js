@@ -4,6 +4,12 @@ angular.module('app')
 function CtrlIndex($window,$scope,Auth,localStorageService){
     
 
+    Auth.verifyAccoount(localStorageService.get('user')) 
+    .then(function(response){
+        $window.location.href="/search"
+    })
+    
+
 
 	$scope.loginStudent = function(user,remember){
     	$scope.preloadStudent =true;
@@ -12,7 +18,7 @@ function CtrlIndex($window,$scope,Auth,localStorageService){
         .then(function(response){
             localStorageService.set('user',response.data);
             $scope.preloadStudent =false;
-            $window.location.href="/";
+            $window.location.href="/search";
         })
         .catch(function(response){
         	$scope.messageStudent = response.data.message;

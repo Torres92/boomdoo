@@ -3,14 +3,24 @@ angular.module('app')
 
 function CtrlSearch($window,$scope,localStorageService,Auth){
 
+	
+
 
 	Auth.verifyAccoount(localStorageService.get('user')) 
 	.then(function(response){
-    	$scope.user =  localStorageService.get('user');
+		$scope.user =  localStorageService.get('user');
     })
     .catch(function(response){
-    	$scope.user = undefined;
+    	$scope.user =  undefined;
     });
+
+    $scope.classroomMobil = function (){
+    	$window.location.href="classroom-mobil";
+    }
+
+    $scope.classroomPc = function (){
+    	$window.location.href="classroom"
+    }
 
     $scope.logout = function (){
     	Auth.logoutStudent()

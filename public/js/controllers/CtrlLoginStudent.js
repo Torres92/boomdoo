@@ -3,6 +3,13 @@ angular.module('app')
 
 function CtrlIndex($window,$scope,Auth,localStorageService){
 
+
+    
+    Auth.verifyAccoount(localStorageService.get('user')) 
+    .then(function(response){
+        $window.location.href="/search"
+    })
+
 	$scope.login= function(user){
         console.log(user)
     	$scope.preload =true;

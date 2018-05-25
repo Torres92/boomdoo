@@ -60,8 +60,7 @@ exports.verifyAccount = function (req,res,next){
 }
 
 exports.logoutStudent = function (req,res,next){
-	if(!req.session.user) return res.status(403).send({message : 'sus credenciales han caducado'});
-	req.session.destroy();
+
 	res.status(200).send({message : 'cerrando sessión'})
 
 }

@@ -27,7 +27,7 @@ function CtrlClassroom($scope,notify){
 
 
 
-	/*webrtc.connection.on('message', (data) => {
+	webrtc.connection.on('message', (data) => {
   		if (data.type === 'chat') {
     		const payload = data.payload;
     		$scope.$apply(function (){
@@ -45,7 +45,7 @@ function CtrlClassroom($scope,notify){
 	 			});
     		})
     	}
-    })*/
+    })
 	
 	$scope.mute = function (){
 		webrtc.mute();
