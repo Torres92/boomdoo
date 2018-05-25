@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session');
+const db = require('mongoose');
 
 
 var usersRouter = require('./routes/users');
@@ -48,15 +49,21 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-var db = require('./db.js');
-
 var server = require('http').Server(app);
 
 var io = require('socket.io')(server);
 
-server.listen(app.get('port'), function() {
-	console.log('port ' + app.get('port'));
+db.connect(global.config.db.port,function (err){
+  if(err) return console.log('hay error');
+  console.log('db : ' + global.config.db.port);
+  
+  server.listen(app.get('port'), function() {
+    console.log('port ' + app.get('port'));
+  });
+
 });
+
+
 
 io.on('connection', function(socket) {
 
