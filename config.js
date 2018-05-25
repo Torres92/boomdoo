@@ -24,7 +24,7 @@ var config = {
 	 	}
  	},
  	db:{
- 		port: process.env.DATABASE_URL || 'mongodb://localhost/boomdoo'
+ 		port: process.env.MONGODB_URI || 'mongodb://localhost/boomdoo'
  	},
  	token:{
  		secret : 'secretodeltoken'

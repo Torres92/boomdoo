@@ -54,10 +54,6 @@ exports.signup = function (req,res,next){
 
 }
 
-exports.verifyAccount = function (req,res,next){
-
-	 res.status(200).send({message : 'tienes permiso'})
-}
 
 exports.logoutStudent = function (req,res,next){
 

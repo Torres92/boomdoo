@@ -6,7 +6,7 @@ var auth = require('../middlewares/auth');
 var session = require('../middlewares/session');
 
 
-router.get('/verifyAccount',session.isAuth,ctrlStudent.verifyAccount);
+router.get('/verifyAccount',session.isAuth);
 router.post('/loginStudent',ctrlStudent.login);
 router.post('/loginTeacher',ctrlTeacher.login);
 router.post('/signupStudent',ctrlStudent.signup);
