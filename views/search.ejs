@@ -8,10 +8,52 @@
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="lib/materialize/materialize.min.css" />
+      <link rel="stylesheet" type="text/css" href="css/preload-oscilador.css">
       <link rel="stylesheet" href="css/search.css">
     </head>
 
     <body ng-controller="CtrlSearch">
+
+  <section class="container-preload" ng-show="!preload">
+  <div class="cssload-container">
+  
+
+  <div class="cssload-cord cssload-leftMove">
+    <div class="cssload-ball"></div>
+  </div>
+  <div class="cssload-cord">
+    <div class="cssload-ball"></div>
+  </div>
+  <div class="cssload-cord">
+    <div class="cssload-ball"></div>
+  </div>
+  <div class="cssload-cord">
+    <div class="cssload-ball"></div>
+  </div>
+  <div class="cssload-cord">
+    <div class="cssload-ball"></div>
+  </div>
+  <div class="cssload-cord">
+    <div class="cssload-ball"></div>
+  </div>
+  <div class="cssload-cord cssload-rightMove">
+    <div class="cssload-ball"></div>
+  </div>
+  <div class="cssload-shadows">
+    <div class="cssload-leftShadow"></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div class="cssload-rightShadow"></div>
+  </div>
+  </div>
+  </section>
+
+    <section ng-show="preload">
+      
+
       <!-- Dropdown Structure -->
       <ul id="dropdown1" class="dropdown-content">
         <li><a class="navfont black-text" href="#!">Editar Perfil</a></li>
@@ -108,10 +150,7 @@
        </li>
       
     </ul>
-
-
-
-       
+   
 
       <div class="section">
         <div class="row center">
@@ -146,19 +185,10 @@
             </div>
           </div>
           
-
-         
-          
-          
-
         </div>
-
-
-        
+       
       </div>
-
-
-     
+    </section>     
       
     </body>
 

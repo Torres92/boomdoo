@@ -3,6 +3,7 @@ angular.module('app')
 
 function CtrlClassroomMobil($scope,notify){
 
+	$scope.preload =true;
 	$scope.messages = [];
 	$scope.countmsm = 0;
 

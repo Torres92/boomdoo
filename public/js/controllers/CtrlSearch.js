@@ -4,7 +4,7 @@ angular.module('app')
 function CtrlSearch($window,$scope,localStorageService,Auth){
 
 	
-
+	$scope.preload =true;
 
 	Auth.verifyAccoount(localStorageService.get('user')) 
 	.then(function(response){
