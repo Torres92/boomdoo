@@ -4,7 +4,7 @@
 	width: 100%;
 	height: 100%;
 	text-align: center;
-	z-index: 1000
+	z-index: 1000;
 }	
 	
 .cssload-cube, .cssload-half1, .cssload-half2, .cssload-container {
@@ -19,7 +19,7 @@
 	position: relative;
 	width: 275px;
 	height: 275px;
-	margin: 10% auto 0;
+	margin: 50% auto 0;
 	perspective: 825px;
 		-o-perspective: 825px;
 		-ms-perspective: 825px;

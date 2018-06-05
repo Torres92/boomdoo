@@ -12,8 +12,6 @@ exports.login = function (req,res,next){
 
 		if(!bcrypt.compareSync(req.query.password,user.password))  return res.status(404).send({message : 'Clave incorrecta'});
 			
-		req.session.user = user.email;//guarda la variable de session para mantener la session activa;
-
 		res.status(200).send({
 			token : services.createToken(user),
 			name : user.name,
